@@ -1,9 +1,9 @@
 ---
 title: Knowledge-base layout
 tags: [special_layouts]
-keywords: knowledge base, support portal, grid, doc portal
+#keywords: knowledge base, support portal, grid, doc portal
 last_updated: July 3, 2016
-summary: "This shows a sample layout for a knowledge base. Each square could link to a tag archive page. In this example, font icons from Font Awesome are used for the graphics, and the layout is pulled from the Modern Business theme. ."
+summary: "This shows a layout for knowledge base."
 sidebar: mydoc_sidebar
 permalink: mydoc_kb_layout.html
 toc: false
@@ -79,37 +79,5 @@ Here's the sample knowledge-base style layout:
 </div>
 
 
-## Generating a list of all pages with a certain tag
-
-If you don't want to link to a tag archive index, but instead want to list all pages that have a certain tag, you could use this code:
-
-```html
-{% raw %}Getting started pages:
-<ul>
-{% assign sorted_pages = site.pages | sort: 'title' %}
-{% for page in sorted_pages %}
-{% for tag in page.tags %}
-{% if tag == "getting_started" %}
-<li><a href="{{ page.url | remove: "/" }}">{{page.title}}</a></li>
-{% endif %}
-{% endfor %}
-{% endfor %}
-</ul>{% endraw %}
-```
-
-Here's the result:
-
-Getting started pages:
-
-<ul>
-{% assign sorted_pages = site.pages | sort: 'title' %}
-{% for page in sorted_pages %}
-{% for tag in page.tags %}
-{% if tag == "getting_started" %}
-<li><a href="{{ page.url | remove: "/"}}">{{page.title}}</a></li>
-{% endif %}
-{% endfor %}
-{% endfor %}
-</ul>
 
 {% include links.html %}
